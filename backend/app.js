@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express()
 
 const stuffRoutes = require('./routes/stuff');
+const userRoutes = require('./routes/user');
 
 mongoose.connect('mongodb+srv://test:test@fullstackcluster.fdq6ci4.mongodb.net/?appName=FullstackCluster',)
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -18,5 +19,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/stuff', stuffRoutes);
+app.use('/api/auth', userRoutes);
 
 module.exports = app
